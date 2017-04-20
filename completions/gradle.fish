@@ -54,8 +54,8 @@ function __cache_or_get_gradle_completion
   cat $gradle_cache_file
 end
 
-function __run_gradle_completion
-  command test -f build.gradle
+function __contains_gradle_build
+  test -f build.gradle
 end
 
-complete -x -c gradle -a (__cache_or_get_gradle_completion) -n '__run_gradle_completion'
+complete -x -c gradle -n '__contains_gradle_build' -a "(__cache_or_get_gradle_completion)"
